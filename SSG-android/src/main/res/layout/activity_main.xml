@@ -9,17 +9,17 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/txtEmail"
         android:background="@drawable/textbox_bg"
         android:text="email"
         android:textColor="#ffffff"
-        android:layout_above="@+id/editText2"
+        android:layout_above="@+id/txtPassword"
         android:layout_marginBottom="10dp"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
+        android:id="@+id/btnLogin"
         android:background="@drawable/login"
         android:layout_above="@+id/textView"
         android:layout_marginBottom="20dp"/>
@@ -32,15 +32,15 @@
         android:id="@+id/textView"
         android:layout_marginTop="20dp"
         android:textColor="#ffffff"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/btnFacebook"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
+        android:id="@+id/btnFacebook"
         android:background="@drawable/facebook"
-        android:layout_above="@+id/button3"
+        android:layout_above="@+id/btnSignup"
         android:layout_marginBottom="20dp" />
 
     <ImageView
@@ -53,7 +53,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
-        android:layout_above="@+id/editText"/>
+        android:layout_above="@+id/txtEmail"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button3"
+        android:id="@+id/btnSignup"
         android:background="@drawable/sign_up"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -83,11 +83,11 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/txtPassword"
         android:background="@drawable/textbox_bg"
         android:text="password"
         android:textColor="#ffffff"
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/btnLogin"
         android:layout_marginBottom="15dp"/>
 
 </RelativeLayout>

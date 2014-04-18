@@ -5,18 +5,35 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.sredisvojgrad.ulica.activities.PhotoActivity;
+import org.sredisvojgrad.ulica.activities.sign_up;
+
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends RoboActivity implements  OnClickListener {
 
-    Button button;
+
+    @InjectView(R.id.txtEmail)    private EditText txtEmail;
+    @InjectView(R.id.btnLogin)    private Button btnLogin;
+    @InjectView(R.id.textView)    private TextView textView;
+    @InjectView(R.id.btnFacebook) private Button btnFacebook;
+    @InjectView(R.id.imageView)   private ImageView imageView;
+    @InjectView(R.id.textView2)   private TextView textView2;
+    @InjectView(R.id.btnSignup)   private Button btnSignup;
+    @InjectView(R.id.txtPassword) private EditText txtPassword;
+
     int width,height;
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
@@ -30,8 +47,8 @@ public class MainActivity extends ActionBarActivity {
          width = size.x;
          height = size.y;
 
-        addListenerOnButton3();
-        addListenerOnButton();
+
+        init();
     }
 
 
@@ -55,41 +72,36 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addListenerOnButton3() {
 
 
-        button = (Button) findViewById(R.id.button3);
 
-        button.setOnClickListener(new OnClickListener() {
+    @Override
+    public void onClick(View view) {
 
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent(MainActivity.this, sign_up.class);
-                startActivity(intent);
-
-            }
-
-        });
-
-    }
-    public void addListenerOnButton() {
+        if(view==btnFacebook){
 
 
-        button = (Button) findViewById(R.id.button);
+        }else if(view==btnLogin){
 
-        button.setOnClickListener(new OnClickListener() {
+            Intent intent = new Intent(MainActivity.this, PhotoActivity.class);
+            startActivity(intent);
 
-            @Override
-            public void onClick(View arg0) {
+        }else if(view==btnSignup){
 
-                Intent intent = new Intent(MainActivity.this, PhotoActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, sign_up.class);
+            startActivity(intent);
 
-            }
-
-        });
+        }
 
     }
 
+    private void init (){
+
+        btnFacebook.setOnClickListener(this);
+        btnLogin.setOnClickListener(this);
+        btnSignup.setOnClickListener(this);
+
+
+
+    }
 }

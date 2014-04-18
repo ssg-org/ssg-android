@@ -3,12 +3,19 @@
     package="org.sredisvojgrad.ulica" >
    // 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
 
     <application
+
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+
         <activity
             android:name="org.sredisvojgrad.ulica.SplashScreen"
             android:label="@string/app_name" >
@@ -27,12 +34,12 @@
 
         <!-- Sign_up activity -->
         <activity
-            android:name="org.sredisvojgrad.ulica.sign_up"
+            android:name=".activities.sign_up"
             android:label="@string/app_name" >
         </activity>
         <!-- PhotoActivity -->
         <activity
-            android:name="org.sredisvojgrad.ulica.PhotoActivity"
+            android:name=".activities.PhotoActivity"
             android:label="@string/title_activity_photo"
             android:parentActivityName="org.sredisvojgrad.ulica.MainActivity" >
             <meta-data
@@ -40,17 +47,17 @@
                 android:value="MainActivity" />
         </activity>
         <activity
-            android:name="org.sredisvojgrad.ulica.SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="org.sredisvojgrad.ulica.PhotoActivity" >
+            android:parentActivityName=".activities.PhotoActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="PhotoActivity" />
         </activity>
         <activity
-            android:name="org.sredisvojgrad.ulica.CameraActivity"
+            android:name=".activities.CameraActivity"
             android:label="@string/title_activity_camera"
-            android:parentActivityName="org.sredisvojgrad.ulica.PhotoActivity" >
+            android:parentActivityName=".activities.PhotoActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="PhotoActivity" />
