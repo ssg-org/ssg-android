@@ -2,36 +2,27 @@ package org.sredisvojgrad.ulica;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
-import android.graphics.Point;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Display;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 
+public class PhotoActivity extends ActionBarActivity {
 
-public class MainActivity extends ActionBarActivity {
-
+    View v;
     Button button;
-    int width,height;
-
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-         width = size.x;
-         height = size.y;
-
-        addListenerOnButton3();
+        setContentView(R.layout.activity_photo);
         addListenerOnButton();
+        addListenerOnButton2();
+
+        getActionBar().setHomeButtonEnabled(true);
     }
 
 
@@ -39,7 +30,7 @@ public class MainActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.photo, menu);
         return true;
     }
 
@@ -55,17 +46,17 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addListenerOnButton3() {
+    public void addListenerOnButton() {
 
 
-        button = (Button) findViewById(R.id.button3);
+        button = (Button) findViewById(R.id.button);
 
-        button.setOnClickListener(new OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
-                Intent intent = new Intent(MainActivity.this, sign_up.class);
+                Intent intent = new Intent(PhotoActivity.this, SettingsActivity.class);
                 startActivity(intent);
 
             }
@@ -73,17 +64,18 @@ public class MainActivity extends ActionBarActivity {
         });
 
     }
-    public void addListenerOnButton() {
+
+    public void addListenerOnButton2() {
 
 
-        button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.button2);
 
-        button.setOnClickListener(new OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
-                Intent intent = new Intent(MainActivity.this, PhotoActivity.class);
+                Intent intent = new Intent(PhotoActivity.this, CameraActivity.class);
                 startActivity(intent);
 
             }

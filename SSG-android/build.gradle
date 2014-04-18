@@ -2,7 +2,7 @@ apply plugin: 'android'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion '19.0.3'
 
     defaultConfig {
         minSdkVersion 8
@@ -20,5 +20,11 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
+    compile 'com.google.android.gms:play-services:4.0.30'
+    compile 'com.google.code.gson:gson:2.2.+'
+    compile 'joda-time:joda-time:2.3'
+    compile 'ch.acra:acra:4.5.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.1@jar'
+    compile 'com.android.support:support-v4:18.0.0'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
