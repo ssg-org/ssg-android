@@ -3,7 +3,6 @@ package org.sredisvojgrad.ulica.activities;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,17 +11,17 @@ import android.widget.Button;
 
 import org.sredisvojgrad.ulica.R;
 
-public class PhotoActivity extends ActionBarActivity {
+import roboguice.activity.RoboActivity;
 
-    View v;
-    Button button;
+public class PhotoActivity extends RoboActivity implements View.OnClickListener{
+
+    private Button btnSettings;
+    private Button btnCamera;
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
-        addListenerOnButton();
-        addListenerOnButton2();
 
         getActionBar().setHomeButtonEnabled(true);
     }
@@ -48,42 +47,25 @@ public class PhotoActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addListenerOnButton() {
+    @Override
+    public void onClick(View v) {
+        if ( v == btnSettings ) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+        } else if ( v == btnCamera ) {
+            Intent intent = new Intent(this, CameraActivity.class);
+            startActivity(intent);
+        }
+    }
+
+    private void init (){
+
+        btnSettings.setOnClickListener(this);
+        btnCamera.setOnClickListener(this);
 
 
-        button = (Button) findViewById(R.id.button);
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent(PhotoActivity.this, SettingsActivity.class);
-                startActivity(intent);
-
-            }
-
-        });
 
     }
 
-    public void addListenerOnButton2() {
-
-
-        button = (Button) findViewById(R.id.button2);
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent(PhotoActivity.this, CameraActivity.class);
-                startActivity(intent);
-
-            }
-
-        });
-
-    }
 
 }

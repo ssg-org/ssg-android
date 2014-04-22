@@ -1,6 +1,8 @@
 package org.sredisvojgrad.ulica.activities;
 
+import android.annotation.TargetApi;
 import android.hardware.Camera;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -19,6 +21,7 @@ public class CameraActivity extends ActionBarActivity {
 
 
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,7 @@ public class CameraActivity extends ActionBarActivity {
                 mCamera.autoFocus(null);
             }
         });
+        getActionBar().setHomeButtonEnabled(true);
     }
     @Override
     protected void onPause() {
@@ -75,5 +79,6 @@ public class CameraActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 }

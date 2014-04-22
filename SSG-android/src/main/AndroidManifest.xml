@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.sredisvojgrad.ulica" >
-   // 
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
 
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
-
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-
-
+        android:theme="@style/Theme.Base.AppCompat.Light.DarkActionBar" >
         <activity
-            android:name="org.sredisvojgrad.ulica.SplashScreen"
+            android:name="org.sredisvojgrad.ulica.activities.SplashScreen"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,39 +27,71 @@
 
         <!-- Main activity -->
         <activity
-            android:name="org.sredisvojgrad.ulica.MainActivity"
+            android:name="org.sredisvojgrad.ulica.activities.MainActivity"
             android:label="@string/app_name" >
         </activity>
 
         <!-- Sign_up activity -->
         <activity
-            android:name=".activities.sign_up"
+            android:name="org.sredisvojgrad.ulica.activities.sign_up"
             android:label="@string/app_name" >
         </activity>
         <!-- PhotoActivity -->
         <activity
-            android:name=".activities.PhotoActivity"
+            android:name="org.sredisvojgrad.ulica.activities.PhotoActivity"
             android:label="@string/title_activity_photo"
-            android:parentActivityName="org.sredisvojgrad.ulica.MainActivity" >
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
         <activity
-            android:name=".activities.SettingsActivity"
+            android:name="org.sredisvojgrad.ulica.activities.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".activities.PhotoActivity" >
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.PhotoActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="PhotoActivity" />
         </activity>
         <activity
-            android:name=".activities.CameraActivity"
+            android:name="org.sredisvojgrad.ulica.activities.CameraActivity"
             android:label="@string/title_activity_camera"
-            android:parentActivityName=".activities.PhotoActivity" >
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.PhotoActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="PhotoActivity" />
+        </activity>
+        <activity
+            android:name="org.sredisvojgrad.ulica.activities.CityActivity"
+            android:label="@string/title_activity_city"
+            android:parentActivityName="org.sredisvojgrad.ulica.SettingsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="SettingsActivity" />
+        </activity>
+        <activity
+            android:name="org.sredisvojgrad.ulica.activities.ActivityCity"
+            android:label="@string/title_activity_activity_city"
+            android:parentActivityName="org.sredisvojgrad.ulica.sign_up" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="sign_up" />
+        </activity>
+        <activity
+            android:name="org.sredisvojgrad.ulica.activities.ActivityLanguages"
+            android:label="@string/title_activity_activity_languages"
+            android:parentActivityName="org.sredisvojgrad.ulica.SettingsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="SettingsActivity" />
+        </activity>
+        <activity
+            android:name="org.sredisvojgrad.ulica.activities.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName="org.sredisvojgrad.ulica.SettingsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="SettingsActivity" />
         </activity>
     </application>
 

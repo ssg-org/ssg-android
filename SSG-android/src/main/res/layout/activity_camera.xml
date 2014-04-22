@@ -14,7 +14,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/btnSettings"
         android:layout_marginLeft="32dp"
         android:background="@drawable/settings"
         android:layout_alignParentStart="true"
@@ -24,7 +24,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
+        android:id="@+id/btnConfiguration"
         android:layout_marginRight="35dp"
         android:background="@drawable/camera_settings"
         android:layout_alignParentBottom="true"
@@ -34,7 +34,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton3"
+        android:id="@+id/btnTakePhoto"
         android:background="@drawable/take_image"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"/>

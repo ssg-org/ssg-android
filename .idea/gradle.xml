@@ -5,10 +5,11 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="C:/gradle-1.11-all/gradle-1.11" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/SSG-android" />
+            <option value="C:\Users\Home\Documents\GitHub\ssg-android" />
+            <option value="C:\Users\Home\Documents\GitHub\ssg-android\SSG-android" />
           </set>
         </option>
       </GradleProjectSettings>

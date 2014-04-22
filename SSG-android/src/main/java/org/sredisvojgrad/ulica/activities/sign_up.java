@@ -1,60 +1,53 @@
 package org.sredisvojgrad.ulica.activities;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
-import org.sredisvojgrad.ulica.MainActivity;
 import org.sredisvojgrad.ulica.R;
 
-public class sign_up extends ActionBarActivity {
+import roboguice.activity.RoboActivity;
 
-    Button button;
+public class sign_up extends RoboActivity implements View.OnClickListener {
+
+    private Button btnBack;
+    private EditText eTName;
+    private EditText eTSurname;
+    private EditText eTEmail;
+    private EditText eTPassword;
+    private Button btnSignUp;
+    private Button btnCity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        addListenerOnButton();
-        addListenerOnButton2();
-    }
-    public void addListenerOnButton() {
-
-
-        button = (Button) findViewById(R.id.button);
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent(sign_up.this, MainActivity.class);
-                startActivity(intent);
-
-            }
-
-        });
 
     }
-    public void addListenerOnButton2() {
+    @Override
+    public void onClick(View v) {
+        if ( v == btnBack ) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else if ( v == btnSignUp ) {
+            // Handle clicks for btnSignUp
+        } else if ( v == btnCity ) {
+            Intent intent = new Intent(this, ActivityCity.class);
+            startActivity(intent);
+        }
+    }
+
+    private void init (){
+
+        btnBack.setOnClickListener(this);
+        btnSignUp.setOnClickListener(this);
+        btnCity.setOnClickListener(this);
 
 
-        button = (Button) findViewById(R.id.button2);
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                Intent intent = new Intent(sign_up.this, MainActivity.class);
-                startActivity(intent);
-
-            }
-
-        });
 
     }
 
