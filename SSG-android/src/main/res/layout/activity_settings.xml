@@ -14,41 +14,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Languages"
-        android:id="@+id/button2"
+        android:id="@+id/btnLanguages"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="100dp"
         android:textColor="#050206"
-        android:background="#ffffff" />
+        android:background="#ffffff"
+        android:gravity="center" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="About Ulica.ba"
-        android:id="@+id/button3"
+        android:id="@+id/btnAbout"
         android:background="#ffffff"
-       android:layout_below="@+id/button2"
-        android:layout_marginTop="10dp"/>
+       android:layout_below="@+id/btnLanguages"
+        android:layout_marginTop="10dp"
+        android:gravity="center" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Log out"
-        android:id="@+id/button4"
+        android:id="@+id/btnLogOut"
         android:background="#ffffff"
         android:textColor="#ff241a"
-        android:layout_below="@+id/button3"
-        android:layout_marginTop="10dp" />
+        android:layout_below="@+id/btnAbout"
+        android:layout_marginTop="10dp"
+        android:gravity="center" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/button"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/splash_ios5_6_01"
-        android:textColor="#ffffffff"  />
+
 
 
 </RelativeLayout>

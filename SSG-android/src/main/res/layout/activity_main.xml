@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.sredisvojgrad.ulica.MainActivity"
+    tools:context="org.sredisvojgrad.ulica.activities.MainActivity"
     android:background="@drawable/login_bg1">
 
 
@@ -14,7 +14,8 @@
         android:text="email"
         android:textColor="#ffffff"
         android:layout_above="@+id/txtPassword"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:gravity="center" />
 
     <Button
         android:layout_width="match_parent"
@@ -22,7 +23,8 @@
         android:id="@+id/btnLogin"
         android:background="@drawable/login"
         android:layout_above="@+id/textView"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,7 +35,8 @@
         android:layout_marginTop="20dp"
         android:textColor="#ffffff"
         android:layout_above="@+id/btnFacebook"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:gravity="center" />
 
     <Button
         android:layout_width="match_parent"
@@ -41,7 +44,8 @@
         android:id="@+id/btnFacebook"
         android:background="@drawable/facebook"
         android:layout_above="@+id/btnSignup"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginBottom="20dp"
+        android:gravity="center" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -78,7 +82,8 @@
         android:layout_alignParentStart="false"
         android:layout_centerInParent="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:gravity="center" />
 
     <EditText
         android:layout_width="match_parent"
@@ -88,6 +93,7 @@
         android:text="password"
         android:textColor="#ffffff"
         android:layout_above="@+id/btnLogin"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        android:gravity="center" />
 
 </RelativeLayout>
