@@ -100,8 +100,5 @@ public class MainActivity extends RoboActivity implements  OnClickListener {
         btnFacebook.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
         btnSignup.setOnClickListener(this);
-
-
-
     }
 }

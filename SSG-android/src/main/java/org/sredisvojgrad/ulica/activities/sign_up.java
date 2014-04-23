@@ -1,8 +1,8 @@
 package org.sredisvojgrad.ulica.activities;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,8 +10,18 @@ import android.widget.Button;
 
 import org.sredisvojgrad.ulica.MainActivity;
 import org.sredisvojgrad.ulica.R;
+import org.sredisvojgrad.ulica.api.GetCitiesAndCategories;
+import org.sredisvojgrad.ulica.api.SsgCommunicatorInterface;
+import org.sredisvojgrad.ulica.model.SyncData;
 
-public class sign_up extends ActionBarActivity {
+import java.util.Objects;
+
+public class sign_up extends ActionBarActivity  implements SsgCommunicatorInterface {
+
+
+
+    Button btnGradovi;
+    private GetCitiesAndCategories en;
 
     Button button;
     @Override
@@ -20,6 +30,27 @@ public class sign_up extends ActionBarActivity {
         setContentView(R.layout.activity_sign_up);
         addListenerOnButton();
         addListenerOnButton2();
+
+        btnGradovi =(Button)findViewById(R.id.btnGradovi);
+        btnGradovi.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+               Intent i = new Intent(sign_up.this,CitiesActivity.class);
+               startActivity(i);
+
+            }
+        });
+
+
+
+    en= new GetCitiesAndCategories(this,this);
+
+        en.getCitiesAndCategories();
+
+        System.out.println("OnCreate");
+
+
     }
     public void addListenerOnButton() {
 
@@ -79,4 +110,19 @@ public class sign_up extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    @Override
+    public void recivedData(SyncData data) {
+
+    }
+
+    @Override
+    public void fetchingData(Error error) {
+
+    }
+
+    @Override
+    public void getResponse(String code, Objects responseObject) {
+
+    }
 }

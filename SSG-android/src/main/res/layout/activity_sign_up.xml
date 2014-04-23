@@ -76,7 +76,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText4"
-        android:layout_above="@+id/editText5"
         android:layout_marginBottom="20dp"
         android:layout_alignLeft="@+id/editText3"
         android:layout_alignStart="@+id/editText3"
@@ -84,34 +83,28 @@
         android:layout_alignEnd="@+id/editText3"
         android:text="password"
         android:singleLine="false"
-        android:background="#ffffff" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText5"
-        android:layout_above="@+id/button2"
-        android:layout_marginBottom="20dp"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_alignStart="@+id/editText4"
-        android:layout_alignRight="@+id/editText4"
-        android:layout_alignEnd="@+id/editText4"
-        android:text="city"
-        android:background="#ffffff" />
+        android:background="#ffffff"
+        android:layout_above="@+id/button2" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button2"
         android:layout_above="@+id/button"
-        android:layout_alignRight="@+id/editText5"
-        android:layout_alignEnd="@+id/editText5"
         android:layout_marginBottom="25dp"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5"
         android:background="#2fff82"
         android:singleLine="false"
         android:text="Sign up"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:layout_alignRight="@+id/editText4"
+        android:layout_alignLeft="@+id/editText4" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gradovi"
+        android:id="@+id/btnGradovi"
+
+     />
 
 </RelativeLayout>

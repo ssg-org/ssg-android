@@ -11,5 +11,6 @@
     <string name="title_activity_photo">PhotoActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_cities">CitiesActivity</string>
 
 </resources>
