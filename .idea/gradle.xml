@@ -3,13 +3,13 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="distributionType" value="LOCAL" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$USER_HOME$/Downloads/gradle-1.11" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/SSG-android" />
+            <option value="C:\Users\Home\Documents\GitHub\ssg-android" />
+            <option value="C:\Users\Home\Documents\GitHub\ssg-android\SSG-android" />
           </set>
         </option>
       </GradleProjectSettings>

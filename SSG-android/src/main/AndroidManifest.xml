@@ -19,7 +19,7 @@
 
         >
 
-
+<!--Splash Screen-->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.SplashScreen"
             android:label="@string/app_name" >
@@ -50,6 +50,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
+        <!---Settings Activity -->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -58,6 +59,28 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="PhotoActivity" />
         </activity>
+
+        <!---About Activity -->
+        <activity
+            android:name="org.sredisvojgrad.ulica.activities.AboutActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.SettingsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="SettingsActivity" />
+        </activity>
+
+        <!---Languages Activity -->
+        <activity
+            android:name="org.sredisvojgrad.ulica.activities.ActivityLanguages"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.SettingsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="SettingsActivity" />
+        </activity>
+
+        <!---Camera Activity-->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.CameraActivity"
             android:label="@string/title_activity_camera"
@@ -66,6 +89,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="PhotoActivity" />
         </activity>
+        <!--Cities Activity-->
         <activity
 
             android:name="org.sredisvojgrad.ulica.activities.CitiesActivity"

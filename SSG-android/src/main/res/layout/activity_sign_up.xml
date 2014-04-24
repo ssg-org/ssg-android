@@ -18,9 +18,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="15dp"
         android:background="#ffffff"
-        android:textColor="#ff3100ff"
+        android:textColor="#ffff231d"
         android:gravity="center" />
 
     <TextView
@@ -30,7 +29,7 @@
         android:text="Get started"
         android:id="@+id/textView"
         android:layout_above="@+id/eTName"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:textAlignment="center"
         android:textColor="#36ff79"
         android:layout_centerHorizontal="true"
@@ -49,7 +48,8 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="gravity"
         android:background="#ffffff"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#ff3e2d0a" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -62,7 +62,8 @@
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
         android:background="#ffffff"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#ff060103" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -76,15 +77,14 @@
         android:layout_alignStart="@+id/eTSurname"
         android:text="Email"
         android:background="#ffffff"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#ff180b12" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:id="@+id/eTPassword"
-        android:layout_above="@+id/btnCity"
-
+        android:layout_above="@+id/btnGradovi"
         android:layout_marginBottom="20dp"
         android:layout_alignLeft="@+id/eTEmail"
         android:layout_alignStart="@+id/eTEmail"
@@ -95,49 +95,37 @@
         android:background="#ffffff"
 
         android:textAlignment="center"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#ff10070b" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-
-
         android:id="@+id/btnSignUp"
-        android:layout_above="@+id/btnBack"
-        android:layout_marginBottom="25dp"
         android:background="#2fff82"
         android:singleLine="false"
         android:text="Sign up"
         android:textColor="#ffffff"
-
-        android:layout_alignRight="@+id/editText4"
-        android:layout_alignLeft="@+id/editText4" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gradovi"
-        android:id="@+id/btnGradovi"
-
-
-
-        android:layout_alignRight="@+id/eTPassword"
-        android:layout_alignLeft="@+id/eTPassword"
-        android:gravity="center" />
+        android:layout_above="@+id/btnBack"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:layout_alignLeft="@+id/btnGradovi"
+        android:layout_alignStart="@+id/btnGradovi"
+        android:layout_alignRight="@+id/btnGradovi"
+        android:layout_alignEnd="@+id/btnGradovi" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:text="City"
-        android:id="@+id/btnCity"
+        android:id="@+id/btnGradovi"
         android:layout_above="@+id/btnSignUp"
         android:layout_marginBottom="15dp"
+        android:layout_alignRight="@+id/eTPassword"
         android:layout_alignLeft="@+id/eTPassword"
+        android:gravity="center"
         android:background="#ffffffff"
-        android:layout_alignRight="@+id/btnSignUp"
-        android:layout_alignEnd="@+id/btnSignUp"
-        android:gravity="center" />
+        android:textColor="#ff080306" />
 
 
 </RelativeLayout>

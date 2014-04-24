@@ -12,20 +12,22 @@ import android.widget.Button;
 import org.sredisvojgrad.ulica.R;
 
 import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 public class SettingsActivity extends RoboActivity implements View.OnClickListener {
 
-    private Button btnLanguages;
-    private Button btnAbout;
-    private Button btnLogOut;
+    @InjectView(R.id.btnLanguages) private Button btnLanguages;
+    @InjectView(R.id.btnAbout)private Button btnAbout;
+    @InjectView(R.id.btnLogOut) private Button btnLogOut;
 
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         getActionBar().setHomeButtonEnabled(true);
+        init();
     }
 
 
@@ -52,9 +54,11 @@ public class SettingsActivity extends RoboActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         if ( v == btnLanguages ) {
-            // Handle clicks for btnLanguages
+            Intent intent = new Intent(this, ActivityLanguages.class);
+            startActivity(intent);
         } else if ( v == btnAbout ) {
-            // Handle clicks for btnAbout
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
         } else if ( v == btnLogOut ) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

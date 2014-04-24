@@ -15,7 +15,6 @@ import org.sredisvojgrad.ulica.api.SsgCommunicatorInterface;
 import org.sredisvojgrad.ulica.model.SyncData;
 
 import java.util.Objects;
-import roboguice.activity.RoboActivity;
 
 public class sign_up extends ActionBarActivity  implements SsgCommunicatorInterface,View.OnClickListener  {
 
@@ -24,16 +23,12 @@ public class sign_up extends ActionBarActivity  implements SsgCommunicatorInterf
 
     Button btnGradovi;
     private GetCitiesAndCategories en;
-
-
-
     private Button btnBack;
     private EditText eTName;
     private EditText eTSurname;
     private EditText eTEmail;
     private EditText eTPassword;
     private Button btnSignUp;
-    private Button btnCity;
 
 
     @Override
@@ -60,6 +55,29 @@ public class sign_up extends ActionBarActivity  implements SsgCommunicatorInterf
 
         System.out.println("OnCreate");
 
+        btnSignUp =(Button)findViewById(R.id.btnSignUp);
+        btnSignUp.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(sign_up.this,MainActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+        btnBack =(Button)findViewById(R.id.btnBack);
+        btnBack.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(sign_up.this,MainActivity.class);
+                startActivity(i);
+
+            }
+        });
+
+
 
     }
 
@@ -72,9 +90,12 @@ public class sign_up extends ActionBarActivity  implements SsgCommunicatorInterf
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else if ( v == btnSignUp ) {
-            // Handle clicks for btnSignUp
-        } else if ( v == btnCity ) {
-            Intent intent = new Intent(this, ActivityCity.class);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+        else if(v==btnGradovi)
+        {
+            Intent intent = new Intent(this, CitiesActivity.class);
             startActivity(intent);
         }
     }
@@ -83,7 +104,7 @@ public class sign_up extends ActionBarActivity  implements SsgCommunicatorInterf
 
         btnBack.setOnClickListener(this);
         btnSignUp.setOnClickListener(this);
-        btnCity.setOnClickListener(this);
+        btnGradovi.setOnClickListener(this);
 
 
 

@@ -1,17 +1,26 @@
 package org.sredisvojgrad.ulica.activities;
 
-import android.support.v7.app.ActionBarActivity;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import org.sredisvojgrad.ulica.R;
+
+import roboguice.activity.RoboActivity;
 
 public class ActivityLanguages extends ActionBarActivity {
 
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_languages);
+        getActionBar().setHomeButtonEnabled(true);
+
     }
 
 
@@ -34,5 +43,7 @@ public class ActivityLanguages extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
 }

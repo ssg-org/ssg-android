@@ -12,11 +12,12 @@ import android.widget.Button;
 import org.sredisvojgrad.ulica.R;
 
 import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 
 public class PhotoActivity extends RoboActivity implements View.OnClickListener{
 
-    private Button btnSettings;
-    private Button btnCamera;
+    @InjectView(R.id.btnSettings) private Button btnSettings;
+    @InjectView(R.id.btnCamera) private Button btnCamera;
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class PhotoActivity extends RoboActivity implements View.OnClickListener{
         setContentView(R.layout.activity_photo);
 
         getActionBar().setHomeButtonEnabled(true);
+        init();
     }
 
 

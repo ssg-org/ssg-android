@@ -2,10 +2,11 @@ package org.sredisvojgrad.ulica.activities;
 
 import android.annotation.TargetApi;
 import android.os.Build;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import org.sredisvojgrad.ulica.R;
 
 public class AboutActivity extends ActionBarActivity {
