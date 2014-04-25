@@ -14,24 +14,23 @@ import org.sredisvojgrad.ulica.model.SyncData;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CitiesActivity extends ActionBarActivity  {
+public class SetProblemCitiesActivity extends ActionBarActivity {
 
-
-    private ListView listViewCities;
+    private ListView lVCity;
     private ArrayAdapter<String> city_adapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cities);
-        listViewCities=(ListView)findViewById(R.id.listViewCities);
-        listViewCities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        setContentView(R.layout.activity_set_problem_cities);
+        lVCity=(ListView)findViewById(R.id.lVCity);
+        lVCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View v , final int position, long id) {
-               // System.out.println(v+position);
-                Intent intent = new Intent(CitiesActivity.this, sign_up.class);
+                // System.out.println(v+position);
+                Intent intent = new Intent(SetProblemCitiesActivity.this, SetProblemActivity.class);
                 startActivity(intent);
             }
         });
@@ -55,6 +54,6 @@ public class CitiesActivity extends ActionBarActivity  {
 
 
         city_adapter = new ArrayAdapter<String>( this,android.R.layout.simple_list_item_1,cities);
-        listViewCities.setAdapter(city_adapter);
+        lVCity.setAdapter(city_adapter);
     }
 }

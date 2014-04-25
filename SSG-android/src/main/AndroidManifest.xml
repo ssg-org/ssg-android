@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.sredisvojgrad.ulica" >
 
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -16,13 +16,14 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat"
-
+        android:name=".SsgApplication"
         >
 
-<!--Splash Screen-->
+        <!-- Splash Screen -->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.SplashScreen"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,74 +34,123 @@
         <!-- Main activity -->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
         </activity>
 
         <!-- Sign_up activity -->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.sign_up"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
         </activity>
         <!-- PhotoActivity -->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.PhotoActivity"
             android:label="@string/title_activity_photo"
-            android:parentActivityName="org.sredisvojgrad.ulica.activities.MainActivity" >
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
-        <!---Settings Activity -->
+        <!-- -Settings Activity -->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="org.sredisvojgrad.ulica.activities.PhotoActivity" >
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.PhotoActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="PhotoActivity" />
         </activity>
 
-        <!---About Activity -->
+        <!-- -About Activity -->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.AboutActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="org.sredisvojgrad.ulica.activities.SettingsActivity" >
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.SettingsActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="SettingsActivity" />
         </activity>
 
-        <!---Languages Activity -->
+        <!-- -Languages Activity -->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.ActivityLanguages"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="org.sredisvojgrad.ulica.activities.SettingsActivity" >
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.SettingsActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="SettingsActivity" />
         </activity>
 
-        <!---Camera Activity-->
+        <!-- -Camera Activity -->
         <activity
             android:name="org.sredisvojgrad.ulica.activities.CameraActivity"
             android:label="@string/title_activity_camera"
-            android:parentActivityName="org.sredisvojgrad.ulica.activities.PhotoActivity" >
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.PhotoActivity"
+            android:screenOrientation="portrait">
+            <!-- configure this activity to use landscape orientation -->
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="PhotoActivity" />
         </activity>
-        <!--Cities Activity-->
+        <!-- Cities Activity -->
         <activity
-
             android:name="org.sredisvojgrad.ulica.activities.CitiesActivity"
-            android:label="@string/title_activity_cities" >
-
-
+            android:label="@string/title_activity_cities"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="SettingsActivity" />
         </activity>
 
+        <!-- Set Problem Activity -->
+        <activity
+            android:name="org.sredisvojgrad.ulica.activities.SetProblemActivity"
+            android:label="@string/title_activity_set_problem"
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.CameraActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="CameraActivity" />
+        </activity>
+
+        <!-- Categories Activity -->
+        <activity
+            android:name="org.sredisvojgrad.ulica.activities.CategoriesActivity"
+            android:label="@string/title_activity_categories"
+            android:parentActivityName="org.sredisvojgrad.ulica.activities.SetProblemActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="SetProblemActivity" />
+        </activity>
+
+        <!-- Set Problem Cities Activity-->
+        <activity
+            android:name="org.sredisvojgrad.ulica.activities.SetProblemCitiesActivity"
+            android:label="@string/title_activity_set_problem_cities"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <!-- Map Activity-->
+        <activity
+            android:name="org.sredisvojgrad.ulica.activities.MapActivity"
+            android:label="@string/title_activity_map"
+            android:screenOrientation="portrait">
+        </activity>
+
+      <!--  <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" /> -->
     </application>
 
 </manifest>

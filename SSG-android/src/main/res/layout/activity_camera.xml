@@ -1,15 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="org.sredisvojgrad.ulica.activities.CameraActivity"
-    android:background="#030403">
-
-    <SurfaceView
-        android:id="@+id/camerapreview"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    <FrameLayout
+        android:id="@+id/camera_preview"
         android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentTop="true"/>
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -34,9 +34,10 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnTakePhoto"
+        android:id="@+id/btnCapturePhoto"
         android:background="@drawable/take_image"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:focusableInTouchMode="true" />
 
 </RelativeLayout>

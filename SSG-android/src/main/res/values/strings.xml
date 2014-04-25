@@ -11,12 +11,16 @@
     <string name="title_activity_photo">PhotoActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_camera">CameraActivity</string>
-
     <string name="title_activity_cities">CitiesActivity</string>
-
     <string name="title_activity_city">CityActivity</string>
     <string name="title_activity_activity_city">ActivityCity</string>
     <string name="title_activity_activity_languages">ActivityLanguages</string>
     <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_set_problem">SetProblemActivity</string>
+    <string name="title_activity_categories">CategoriesActivity</string>
+    <string name="title_activity_set_problem_cities">SetProblemCitiesActivity</string>
+    <string name="title_activity_map">MapActivity</string>
+    <string name="crash_toast_text">BUG in application</string>
+
 
 </resources>

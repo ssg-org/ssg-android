@@ -12,4 +12,16 @@ public class Categories {
     public String name;
     public Integer parent_id;
 
+
+    @Override
+    public String toString() {
+        return "Categories{" +
+                "id=" + id +
+                ", color='" + color + '\'' +
+                ", descript='" + descript + '\'' +
+                ", icon='" + icon + '\'' +
+                ", name='" + name + '\'' +
+                ", parent_id=" + parent_id +
+                '}';
+    }
 }

@@ -10,6 +10,7 @@ import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.sredisvojgrad.ulica.model.Categories;
 import org.sredisvojgrad.ulica.model.City;
 import org.sredisvojgrad.ulica.model.SyncData;
 
@@ -57,7 +58,6 @@ public class GetCitiesAndCategories {
         client.setBasicAuth("username","pass");
 
 
-
         client.get(activity,url,params,new BaseJsonHttpResponseHandler<JSONObject>() {
 
 
@@ -78,12 +78,15 @@ public class GetCitiesAndCategories {
                     e.printStackTrace();
                 }
                 JSONArray cities_array=null;
+                JSONArray categories_array=null;
                 try {
                    cities_array = document_object.getJSONArray("cities");
+                   categories_array=document_object.getJSONArray("categories");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
+                //Parse cities
                 for(int i=0;i<cities_array.length();i++){
 
                     JSONObject city_object = null;
@@ -93,12 +96,42 @@ public class GetCitiesAndCategories {
                         e.printStackTrace();
                     }
                     try {
-                        String name = city_object.getString("name");
                         City city = new City();
-                        city.name=name;
+                        city.name=city_object.getString("name");
 
                         SyncData.getInstance().cities.add(city);
-                        System.out.println(name);
+                        //System.out.println(name);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+                //parse categories
+                for(int i=0;i<categories_array.length();i++){
+
+                    JSONObject category_object = null;
+                    try {
+                        category_object = categories_array.getJSONObject(i);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+
+                        Categories category = new Categories();
+                        category.name=category_object.getString("name");
+                        category.color=category_object.getString("color");
+                        category.icon=category_object.getString("icon");
+                        category.id=  category_object.getInt("id");
+
+
+                        if ( !category_object.getString("parent_id").equals("null")) {
+                            category.parent_id = Integer.valueOf(category_object.getInt("parent_id"));
+                        }
+
+                        SyncData.getInstance().categories.add(category);
+
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -107,7 +140,11 @@ public class GetCitiesAndCategories {
                 }
 
 
+                for (int i=0; i< SyncData.getInstance().categories.size();i++){
 
+                    System.out.println( SyncData.getInstance().categories.get(i).toString());
+
+                }
 
             }
 
