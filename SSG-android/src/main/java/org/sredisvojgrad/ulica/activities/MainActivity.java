@@ -14,8 +14,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.sredisvojgrad.ulica.R;
+import org.sredisvojgrad.ulica.api.FacebookLoginService;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
@@ -71,21 +73,31 @@ public class MainActivity extends RoboActivity implements  OnClickListener {
         return super.onOptionsItemSelected(item);
     }
 
-
-
-
     @Override
     public void onClick(View view) {
 
-        if(view==btnFacebook){
 
+
+        if(view==btnFacebook){
+            FacebookLoginService fbLoogin=new FacebookLoginService(this);
+             fbLoogin.login();
 
         }else if(view==btnLogin){
 
-            Intent intent = new Intent(MainActivity.this, PhotoActivity.class);
-            startActivity(intent);
+            if((txtEmail.getText().toString()).isEmpty() || (txtPassword.getText().toString()).isEmpty())
+            {
+
+                Toast.makeText(this, "Please fill all information.", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                String email=txtEmail.getText().toString();
+                String password=txtPassword.getText().toString();
+                Intent intent = new Intent(MainActivity.this, PhotoActivity.class);
+                startActivity(intent);
+            }
 
         }else if(view==btnSignup){
+
 
             Intent intent = new Intent(MainActivity.this, sign_up.class);
             startActivity(intent);
@@ -99,11 +111,6 @@ public class MainActivity extends RoboActivity implements  OnClickListener {
         btnFacebook.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
         btnSignup.setOnClickListener(this);
-
-
-
     }
-
-
 
 }

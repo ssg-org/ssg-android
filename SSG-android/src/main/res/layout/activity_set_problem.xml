@@ -48,8 +48,8 @@
         android:layout_alignParentStart="true"
         android:background="#ffffffff"
         android:gravity="left"
-        android:text="Description"
-        android:textColor="#ff060606" />
+        android:hint="Description"
+        android:textColorHint="#ff060606" />
 
     <EditText
         android:layout_width="match_parent"
@@ -58,8 +58,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="40dp"
-        android:text="Title"
-        android:textColor="#ff020202"
+        android:hint="Title"
+        android:textColorHint="#ff020202"
         android:gravity="center"
         android:autoText="true"
         android:layout_alignParentTop="true"

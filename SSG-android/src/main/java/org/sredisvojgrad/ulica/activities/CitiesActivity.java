@@ -16,10 +16,9 @@ import java.util.List;
 
 public class CitiesActivity extends ActionBarActivity  {
 
-
+public final static  String ID_EXTRA= "string_i_need";
     private ListView listViewCities;
     private ArrayAdapter<String> city_adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +29,10 @@ public class CitiesActivity extends ActionBarActivity  {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View v , final int position, long id) {
-               // System.out.println(v+position);
+
+
                 Intent intent = new Intent(CitiesActivity.this, sign_up.class);
+                intent.putExtra(ID_EXTRA,String.valueOf(parent.getChildAt(position)));
                 startActivity(intent);
             }
         });

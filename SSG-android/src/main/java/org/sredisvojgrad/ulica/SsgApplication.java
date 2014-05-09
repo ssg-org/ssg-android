@@ -9,7 +9,7 @@ import org.acra.annotation.ReportsCrashes;
  * Created by Home on 25.4.2014..
  */
 @ReportsCrashes(formKey = "", // will not be used
-        mailTo = "haris.dautovic@klika.ba",
+        mailTo = "arnela06@gmail.com",
         mode = ReportingInteractionMode.TOAST,
         resToastText = R.string.crash_toast_text)
 public class SsgApplication  extends Application{

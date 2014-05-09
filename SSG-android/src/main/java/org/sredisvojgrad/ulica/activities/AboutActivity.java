@@ -29,6 +29,8 @@ public class AboutActivity extends RoboActivity implements View.OnClickListener 
         getActionBar().setHomeButtonEnabled(true);
         init();
 
+
+
     }
 
 
