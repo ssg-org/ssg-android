@@ -18,24 +18,33 @@ import android.widget.Toast;
 
 import org.sredisvojgrad.ulica.R;
 import org.sredisvojgrad.ulica.api.FacebookLoginService;
+import org.sredisvojgrad.ulica.api.LoginService;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 
 
-public class MainActivity extends RoboActivity implements  OnClickListener {
+public class MainActivity extends RoboActivity implements OnClickListener {
 
 
-    @InjectView(R.id.txtEmail)    private EditText txtEmail;
-    @InjectView(R.id.btnLogin)    private Button btnLogin;
-    @InjectView(R.id.textView)    private TextView textView;
-    @InjectView(R.id.btnFacebook) private Button btnFacebook;
-    @InjectView(R.id.imageView)   private ImageView imageView;
-    @InjectView(R.id.textView2)   private TextView textView2;
-    @InjectView(R.id.btnSignup)   private Button btnSignup;
-    @InjectView(R.id.txtPassword) private EditText txtPassword;
+    @InjectView(R.id.txtEmail)
+    private EditText txtEmail;
+    @InjectView(R.id.btnLogin)
+    private Button btnLogin;
+    @InjectView(R.id.textView)
+    private TextView textView;
+    @InjectView(R.id.btnFacebook)
+    private Button btnFacebook;
+    @InjectView(R.id.imageView)
+    private ImageView imageView;
+    @InjectView(R.id.textView2)
+    private TextView textView2;
+    @InjectView(R.id.btnSignup)
+    private Button btnSignup;
+    @InjectView(R.id.txtPassword)
+    private EditText txtPassword;
 
-    int width,height;
+    int width, height;
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     @Override
@@ -45,8 +54,8 @@ public class MainActivity extends RoboActivity implements  OnClickListener {
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-         width = size.x;
-         height = size.y;
+        width = size.x;
+        height = size.y;
 
 
         init();
@@ -55,7 +64,7 @@ public class MainActivity extends RoboActivity implements  OnClickListener {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -77,26 +86,25 @@ public class MainActivity extends RoboActivity implements  OnClickListener {
     public void onClick(View view) {
 
 
+        if (view == btnFacebook) {
+            FacebookLoginService fbLoogin = new FacebookLoginService(this);
+            fbLoogin.login();
 
-        if(view==btnFacebook){
-            FacebookLoginService fbLoogin=new FacebookLoginService(this);
-             fbLoogin.login();
+        } else if (view == btnLogin) {
 
-        }else if(view==btnLogin){
-
-            if((txtEmail.getText().toString()).isEmpty() || (txtPassword.getText().toString()).isEmpty())
-            {
+            if ((txtEmail.getText().toString()).isEmpty() || (txtPassword.getText().toString()).isEmpty()) {
 
                 Toast.makeText(this, "Please fill all information.", Toast.LENGTH_SHORT).show();
-            }
-            else {
-                String email=txtEmail.getText().toString();
-                String password=txtPassword.getText().toString();
+            } else {
+                String email = txtEmail.getText().toString();
+                String password = txtPassword.getText().toString();
+                LoginService loginService = new LoginService(this);
+                loginService.login(email, password);
                 Intent intent = new Intent(MainActivity.this, PhotoActivity.class);
                 startActivity(intent);
             }
 
-        }else if(view==btnSignup){
+        } else if (view == btnSignup) {
 
 
             Intent intent = new Intent(MainActivity.this, sign_up.class);
@@ -106,7 +114,7 @@ public class MainActivity extends RoboActivity implements  OnClickListener {
 
     }
 
-    private void init (){
+    private void init() {
 
         btnFacebook.setOnClickListener(this);
         btnLogin.setOnClickListener(this);

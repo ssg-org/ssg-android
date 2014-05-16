@@ -27,10 +27,7 @@ import java.util.Objects;
 
 import static junit.framework.Assert.assertEquals;
 
-public class sign_up extends ActionBarActivity  implements SsgCommunicatorInterface,View.OnClickListener  {
-
-
-
+public class sign_up extends ActionBarActivity implements SsgCommunicatorInterface, View.OnClickListener {
 
     Button btnGradovi;
     private GetCitiesAndCategories en;
@@ -41,26 +38,25 @@ public class sign_up extends ActionBarActivity  implements SsgCommunicatorInterf
     private EditText eTPassword;
     private Button btnSignUp;
     private ListView listViewCities;
-    String passedVar=null;
+    String passedVar = null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        listViewCities=(ListView)findViewById(R.id.listViewCities);
-        btnGradovi =(Button)findViewById(R.id.btnGradovi);
-        eTName=(EditText)findViewById(R.id.eTName);
-        eTSurname=(EditText)findViewById(R.id.eTSurname);
-        eTEmail=(EditText)findViewById(R.id.eTEmail);
-        eTPassword=(EditText)findViewById(R.id.eTPassword);
-      en= new GetCitiesAndCategories(this,this);
+        listViewCities = (ListView) findViewById(R.id.listViewCities);
+        btnGradovi = (Button) findViewById(R.id.btnGradovi);
+        eTName = (EditText) findViewById(R.id.eTName);
+        eTSurname = (EditText) findViewById(R.id.eTSurname);
+        eTEmail = (EditText) findViewById(R.id.eTEmail);
+        eTPassword = (EditText) findViewById(R.id.eTPassword);
+        en = new GetCitiesAndCategories(this, this);
         en.getCitiesAndCategories();
-        btnSignUp =(Button)findViewById(R.id.btnSignUp);
-        btnBack =(Button)findViewById(R.id.btnBack);
-        passedVar=getIntent().getStringExtra(CitiesActivity.ID_EXTRA);
-
-            btnGradovi.setText(passedVar);
+        btnSignUp = (Button) findViewById(R.id.btnSignUp);
+        btnBack = (Button) findViewById(R.id.btnBack);
+        passedVar = getIntent().getStringExtra(CitiesActivity.ID_EXTRA);
+        btnGradovi.setText(passedVar);
 
         init();
 
@@ -69,40 +65,37 @@ public class sign_up extends ActionBarActivity  implements SsgCommunicatorInterf
 
     @Override
     public void onClick(View v) {
-        if ( v == btnBack ) {
+        if (v == btnBack) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-        } else  if (v == btnSignUp) {
+        } else if (v == btnSignUp) {
 
             final String emailPattern = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-           if ((btnGradovi.getText().toString()).isEmpty() || (eTName.getText().toString()).isEmpty() || (eTSurname.getText().toString()).isEmpty() ||( eTPassword.getText().toString() ).isEmpty() || ( eTEmail.getText().toString() ).isEmpty())  {
+            if ((btnGradovi.getText().toString()).isEmpty() || (eTName.getText().toString()).isEmpty() || (eTSurname.getText().toString()).isEmpty() || (eTPassword.getText().toString()).isEmpty() || (eTEmail.getText().toString()).isEmpty()) {
                 Toast.makeText(this, "Please fill all information.", Toast.LENGTH_SHORT).show();
 
-                }
-else {
+            } else {
 
-               user newUser = new user();
-               String email = eTEmail.getText().toString();
-               if(email.matches(emailPattern))
-               {
-                   newUser.setEmail(email);
-                   String name = eTName.getText().toString();
-                   newUser.setName(name);
-                   String lastname = eTSurname.getText().toString();
-                   newUser.setLastname(lastname);
-                   String password = eTPassword.getText().toString();
-                   newUser.setPassword(password);
-                   String city=btnGradovi.getText().toString();
-                   newUser.setUserCity(city);
-                   EmailLoginService loginService  = new EmailLoginService(this);
-                   loginService.login(newUser);
-                   Toast.makeText(this, "Please verify your email address.", Toast.LENGTH_SHORT).show();
-                   Intent intent = new Intent(this, MainActivity.class);
-                   startActivity(intent);
-               }
-               else {
-                   Toast.makeText(this, "Please enter valide email address.", Toast.LENGTH_SHORT).show();
-               }
+                user newUser = new user();
+                String email = eTEmail.getText().toString();
+                if (email.matches(emailPattern)) {
+                    newUser.setEmail(email);
+                    String name = eTName.getText().toString();
+                    newUser.setName(name);
+                    String lastname = eTSurname.getText().toString();
+                    newUser.setLastname(lastname);
+                    String password = eTPassword.getText().toString();
+                    newUser.setPassword(password);
+                    String city = btnGradovi.getText().toString();
+                    newUser.setUserCity(city);
+                    EmailLoginService loginService = new EmailLoginService(this);
+                    loginService.login(newUser);
+                    Toast.makeText(this, "Please verify your email address.", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, "Please enter valide email address.", Toast.LENGTH_SHORT).show();
+                }
 
                /*   openDatabase();
                userDao dao=new userDao(getApplicationContext());
@@ -112,35 +105,35 @@ else {
                assertEquals(newUserId,newUser.getUserId());
               // DatabaseHelper dbH= DbFactory.getDatabaseHelper(getApplicationContext());*/
 
-           }
+            }
 
-            }
-        else if (v == btnGradovi) {
-                Intent intent = new Intent(this, CitiesActivity.class);
-                startActivity(intent);
-            }
+        } else if (v == btnGradovi) {
+            Intent intent = new Intent(this, CitiesActivity.class);
+            startActivity(intent);
         }
+    }
 
 
-    private void init (){
+    private void init() {
 
         btnBack.setOnClickListener(this);
         btnSignUp.setOnClickListener(this);
         btnGradovi.setOnClickListener(this);
 
 
-
     }
+
     private void openDatabase() {
         DatabaseHelper dbHelper = DbFactory.getDatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         assertEquals(ssgDatabaseHelper.DB_VERSION, db.getVersion());
         // wipe database
-      //  dbHelper.onUpgrade(db, ssgDatabaseHelper.DB_VERSION, ssgDatabaseHelper.DB_VERSION);
+        //  dbHelper.onUpgrade(db, ssgDatabaseHelper.DB_VERSION, ssgDatabaseHelper.DB_VERSION);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.sign_up, menu);
         return true;

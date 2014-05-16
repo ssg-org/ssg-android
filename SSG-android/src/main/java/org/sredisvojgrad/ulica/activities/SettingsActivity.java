@@ -16,9 +16,12 @@ import roboguice.inject.InjectView;
 
 public class SettingsActivity extends RoboActivity implements View.OnClickListener {
 
-    @InjectView(R.id.btnLanguages) private Button btnLanguages;
-    @InjectView(R.id.btnAbout)private Button btnAbout;
-    @InjectView(R.id.btnLogOut) private Button btnLogOut;
+    @InjectView(R.id.btnLanguages)
+    private Button btnLanguages;
+    @InjectView(R.id.btnAbout)
+    private Button btnAbout;
+    @InjectView(R.id.btnLogOut)
+    private Button btnLogOut;
 
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
@@ -53,24 +56,23 @@ public class SettingsActivity extends RoboActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        if ( v == btnLanguages ) {
+        if (v == btnLanguages) {
             Intent intent = new Intent(this, ActivityLanguages.class);
             startActivity(intent);
-        } else if ( v == btnAbout ) {
+        } else if (v == btnAbout) {
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
-        } else if ( v == btnLogOut ) {
+        } else if (v == btnLogOut) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
     }
 
-    private void init (){
+    private void init() {
 
         btnLanguages.setOnClickListener(this);
         btnLogOut.setOnClickListener(this);
         btnAbout.setOnClickListener(this);
-
 
 
     }

@@ -9,37 +9,33 @@ import com.loopj.android.http.RequestParams;
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.sredisvojgrad.ulica.entity.user;
 
 import java.security.KeyStore;
 import java.util.HashMap;
 
 /**
- * Created by Home on 9.5.2014..
+ * Created by Home on 15.5.2014..
  */
-public class EmailLoginService {
+public class LoginService {
 
 
     private Context activity;
     //private  BaseJsonHttpResponseHandler<JsonObject> inter;
     private SsgCommunicatorInterface communicatorInterface;
 
-    public EmailLoginService(Context activity) {
+    public LoginService(Context activity) {
         this.activity = activity;
         //this.communicatorInterface=communication;
     }
 
 
-    public void login(user u) {
+    public void login(String email, String password) {
 
         HashMap<String, String> paramsHashMap = new HashMap<String, String>();
         paramsHashMap.put("ts", "12312312");
 
-        paramsHashMap.put("password", u.getPassword());
-        paramsHashMap.put("email", u.getEmail());
-        paramsHashMap.put("city_id", u.getUserCity());
-        paramsHashMap.put("first_name", u.getName());
-        paramsHashMap.put("last_name", u.getLastname());
+        paramsHashMap.put("password", password);
+        paramsHashMap.put("email", email);
 
         //Set params
         RequestParams params = new RequestParams();
@@ -47,18 +43,13 @@ public class EmailLoginService {
         String signature = SsgAPI.buildSignature(paramsHashMap);
         System.out.println("SIGNATURE:" + signature);
 //dodati da za city uzima id
-        params.put("password", u.getPassword());
-        params.put("email", u.getEmail());
-        params.put("city_id", u.getUserCity());
-        params.put("first_name", u.getName());
-        params.put("last_name", u.getLastname());
+        params.put("password", password);
+        params.put("email", email);
         params.put("ts", "12312312");
         params.put("signature", signature);
 
-
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = SsgAPI.getHostName() + "/sessions/signup";
-
+        String url = SsgAPI.getHostName() + "/sessions";
         client.setBasicAuth("username", "pass");
 
         try {
@@ -72,8 +63,7 @@ public class EmailLoginService {
             System.out.println("Error ssl :" + e);
         }
 
-
-        client.post(activity, url, params, new BaseJsonHttpResponseHandler<JSONObject>() {
+        client.get(activity, url, params, new BaseJsonHttpResponseHandler<JSONObject>() {
 
 
             @Override
@@ -94,7 +84,9 @@ public class EmailLoginService {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable e, String rawData, JSONObject errorResponse) {
 
-                System.out.println("Service error: " + statusCode + " raw  data: " + rawData);
+
+
+                System.out.println("Service errorrrrrr: " + statusCode + " raw  data: " + e.toString());
 
             }
 
@@ -106,5 +98,6 @@ public class EmailLoginService {
             }
         });
     }
-
 }
+
+

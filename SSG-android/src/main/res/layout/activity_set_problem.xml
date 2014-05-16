@@ -12,7 +12,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="Category"
+        android:hint="Category"
         android:id="@+id/btnCategory"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
@@ -20,13 +20,14 @@
         android:layout_below="@+id/eTTitle"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:textColor="#ff070707"
-        android:background="#ffffffff" />
+        android:textColorHint="#ff040302"
+        android:background="#ffffffff"
+        android:textColor="#ff040302"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="City"
+        android:hint="City"
         android:id="@+id/btnCitySet"
         android:layout_below="@+id/btnCategory"
         android:layout_marginTop="15dp"
@@ -34,7 +35,8 @@
         android:layout_alignParentStart="true"
         android:background="#ffffffff"
         android:gravity="center"
-        android:textColor="#ff050305" />
+        android:textColorHint="#ff040302"
+        android:textColor="#ff040302"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -49,7 +51,7 @@
         android:background="#ffffffff"
         android:gravity="left"
         android:hint="Description"
-        android:textColorHint="#ff060606" />
+        android:textColorHint="#ff040302" />
 
     <EditText
         android:layout_width="match_parent"
@@ -59,7 +61,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="40dp"
         android:hint="Title"
-        android:textColorHint="#ff020202"
+        android:textColorHint="#ff040302"
         android:gravity="center"
         android:autoText="true"
         android:layout_alignParentTop="true"

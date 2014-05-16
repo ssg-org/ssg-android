@@ -94,6 +94,7 @@
         android:textColorHint="#ffffff"
         android:layout_above="@+id/btnLogin"
         android:layout_marginBottom="15dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:password="true" />
 
 </RelativeLayout>

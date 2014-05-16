@@ -21,17 +21,16 @@ public class FacebookLoginService {
     //private  BaseJsonHttpResponseHandler<JsonObject> inter;
     private SsgCommunicatorInterface communicatorInterface;
 
-    public FacebookLoginService(Context activity)
-    {
-        this.activity=activity;
+    public FacebookLoginService(Context activity) {
+        this.activity = activity;
         //this.communicatorInterface=communication;
     }
 
 
-    public void login (){
+    public void login() {
 
-        HashMap<String,String> paramsHashMap = new HashMap<String, String>();
-        paramsHashMap.put("ts","12312312");
+        HashMap<String, String> paramsHashMap = new HashMap<String, String>();
+        paramsHashMap.put("ts", "12312312");
 
         paramsHashMap.put("email", "fbmail");
         paramsHashMap.put("fb_id", "32");
@@ -42,7 +41,7 @@ public class FacebookLoginService {
         RequestParams params = new RequestParams();
 
         String signature = SsgAPI.buildSignature(paramsHashMap);
-        System.out.println("SIGNATURE:"+signature);
+        System.out.println("SIGNATURE:" + signature);
 
         params.put("email", "fbmail");
         params.put("fb_id", "32");
@@ -51,14 +50,13 @@ public class FacebookLoginService {
         params.put("signature", signature);
 
 
-
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = SsgAPI.getHostName()+"/api/v1/sessions/fb_create";
+        String url = SsgAPI.getHostName() + "/api/v1/sessions/fb_create";
 
-        client.setBasicAuth("username","pass");
+        client.setBasicAuth("username", "pass");
 
 
-        client.post(activity,url,params,new BaseJsonHttpResponseHandler<JSONObject>() {
+        client.post(activity, url, params, new BaseJsonHttpResponseHandler<JSONObject>() {
 
 
             @Override
@@ -71,7 +69,7 @@ public class FacebookLoginService {
                     e.printStackTrace();
                 }
 
-                System.out.println("Service response"+document_string);
+                System.out.println("Service response" + document_string);
 
 
             }

@@ -21,7 +21,7 @@
         android:gravity="center|fill_horizontal"
         android:singleLine="false"
         android:textStyle="bold"
-        android:textColor="#ff030303" />
+        android:textColor="#ff040302" />
 
     <Button
         style="?android:attr/buttonStyleSmall"

@@ -38,12 +38,14 @@ public class CameraActivity extends RoboActivity implements OnClickListener {
     private Preview mPreview;
     private final String TAG = "Preview";
 
-    @InjectView(R.id.camera_preview)   private FrameLayout cameraPreview;
-    @InjectView(R.id.btnSettings)      private ImageButton btnSettings;
-    @InjectView(R.id.btnConfiguration) private ImageButton btnConfiguration;
-    @InjectView(R.id.btnCapturePhoto)  private ImageButton btnCapturePhoto;
-
-
+    @InjectView(R.id.camera_preview)
+    private FrameLayout cameraPreview;
+    @InjectView(R.id.btnSettings)
+    private ImageButton btnSettings;
+    @InjectView(R.id.btnConfiguration)
+    private ImageButton btnConfiguration;
+    @InjectView(R.id.btnCapturePhoto)
+    private ImageButton btnCapturePhoto;
 
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
@@ -71,8 +73,8 @@ public class CameraActivity extends RoboActivity implements OnClickListener {
         @Override
         public void onPictureTaken(byte[] data, Camera camera) {
 
-            File pictureFile =  getOutputMediaFile(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE);
-            if (pictureFile == null){
+            File pictureFile = getOutputMediaFile(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE);
+            if (pictureFile == null) {
                 Log.d(TAG, "Error creating media file, check storage permissions: ");
                 return;
             }
@@ -90,28 +92,30 @@ public class CameraActivity extends RoboActivity implements OnClickListener {
     };
 
 
-    /** A safe way to get an instance of the Camera object. */
-    public static Camera getCameraInstance(){
+    /**
+     * A safe way to get an instance of the Camera object.
+     */
+    public static Camera getCameraInstance() {
         Camera c = null;
         try {
             c = Camera.open(); // attempt to get a Camera instance
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             // Camera is not available (in use or does not exist)
         }
         return c; // returns null if camera is unavailable
     }
 
 
-
-    /** Check if this device has a camera */
+    /**
+     * Check if this device has a camera
+     */
     private boolean checkCameraHardware(Context context) {
-        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
+        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             // this device has a camera
             return true;
         } else {
             // no camera on this device
-          System.out.println("Nema kamere!");
+            System.out.println("Nema kamere!");
             return false;
         }
     }
@@ -120,16 +124,16 @@ public class CameraActivity extends RoboActivity implements OnClickListener {
     @Override
     public void onClick(View view) {
 
-        if(view==btnCapturePhoto){
+        if (view == btnCapturePhoto) {
 
             mCamera.takePicture(null, null, mPicture);
             Intent intent = new Intent(CameraActivity.this, SetProblemActivity.class);
             startActivity(intent);
 
-        }else if(view==btnConfiguration){
+        } else if (view == btnConfiguration) {
 
 
-        }else if(view==btnSettings){
+        } else if (view == btnSettings) {
             Intent intent = new Intent(CameraActivity.this, SettingsActivity.class);
             startActivity(intent);
 
@@ -137,12 +141,11 @@ public class CameraActivity extends RoboActivity implements OnClickListener {
 
     }
 
-    private void init (){
+    private void init() {
 
         btnSettings.setOnClickListener(this);
         btnCapturePhoto.setOnClickListener(this);
         btnConfiguration.setOnClickListener(this);
-
 
 
     }
@@ -154,20 +157,21 @@ public class CameraActivity extends RoboActivity implements OnClickListener {
     }
 
 
-
-    private void releaseCamera(){
-        if (mCamera != null){
+    private void releaseCamera() {
+        if (mCamera != null) {
             mCamera.release();        // release the camera for other applications
             mCamera = null;
         }
     }
 
 
-public static final int MEDIA_TYPE_IMAGE = 1;
+    public static final int MEDIA_TYPE_IMAGE = 1;
 
 
-    /** Create a File for saving an image or video */
-    private static File getOutputMediaFile(int type){
+    /**
+     * Create a File for saving an image or video
+     */
+    private static File getOutputMediaFile(int type) {
         // To be safe, you should check that the SDCard is mounted
         // using Environment.getExternalStorageState() before doing this.
 
@@ -177,8 +181,8 @@ public static final int MEDIA_TYPE_IMAGE = 1;
         // between applications and persist after your app has been uninstalled.
 
         // Create the storage directory if it does not exist
-        if (! mediaStorageDir.exists()){
-            if (! mediaStorageDir.mkdirs()){
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
                 Log.d("MyCameraApp", "failed to create directory");
                 return null;
             }
@@ -187,10 +191,10 @@ public static final int MEDIA_TYPE_IMAGE = 1;
         // Create a media file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         File mediaFile;
-        if (type == MEDIA_TYPE_IMAGE){
+        if (type == MEDIA_TYPE_IMAGE) {
             mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-                    "IMG_"+ timeStamp + ".jpg");
-        }else {
+                    "IMG_" + timeStamp + ".jpg");
+        } else {
             return null;
         }
 

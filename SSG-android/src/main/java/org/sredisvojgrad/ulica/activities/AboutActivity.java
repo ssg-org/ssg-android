@@ -17,8 +17,10 @@ import roboguice.inject.InjectView;
 
 public class AboutActivity extends RoboActivity implements View.OnClickListener {
 
-    @InjectView(R.id.textView) private TextView textView;
-    @InjectView(R.id.button)   private Button button;
+    @InjectView(R.id.textView)
+    private TextView textView;
+    @InjectView(R.id.button)
+    private Button button;
 
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -30,13 +32,12 @@ public class AboutActivity extends RoboActivity implements View.OnClickListener 
         init();
 
 
-
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.about, menu);
         return true;
@@ -62,12 +63,12 @@ public class AboutActivity extends RoboActivity implements View.OnClickListener 
         }
     }
 
-        private void init (){
+    private void init() {
 
-            button.setOnClickListener(this);
+        button.setOnClickListener(this);
 
-        }
     }
+}
 
 
 

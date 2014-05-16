@@ -9,12 +9,12 @@ import com.turbomanage.storm.api.Entity;
 public class user {
 
 
-    private  long userId;
+    private long userId;
     private String name;
     private String lastname;
     private String email;
-    private  String password;
-    private  String userCity;
+    private String password;
+    private String userCity;
 
     public String getName() {
         return name;
@@ -65,6 +65,6 @@ public class user {
     }
 
 
-
-    public user(){}
+    public user() {
+    }
 }

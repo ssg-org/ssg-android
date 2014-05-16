@@ -14,9 +14,9 @@ import org.sredisvojgrad.ulica.model.SyncData;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CitiesActivity extends ActionBarActivity  {
+public class CitiesActivity extends ActionBarActivity {
 
-public final static  String ID_EXTRA= "string_i_need";
+    public final static String ID_EXTRA = "string_i_need";
     private ListView listViewCities;
     private ArrayAdapter<String> city_adapter;
 
@@ -24,15 +24,16 @@ public final static  String ID_EXTRA= "string_i_need";
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cities);
-        listViewCities=(ListView)findViewById(R.id.listViewCities);
+        listViewCities = (ListView) findViewById(R.id.listViewCities);
         listViewCities.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView<?> parent, View v , final int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View v, final int position, long id) {
 
 
+                String text = listViewCities.getItemAtPosition(position).toString().trim();
                 Intent intent = new Intent(CitiesActivity.this, sign_up.class);
-                intent.putExtra(ID_EXTRA,String.valueOf(parent.getChildAt(position)));
+                intent.putExtra(ID_EXTRA, text);
                 startActivity(intent);
             }
         });
@@ -44,10 +45,10 @@ public final static  String ID_EXTRA= "string_i_need";
         setListViewCities();
     }
 
-    private void setListViewCities (){
+    private void setListViewCities() {
 
         List<String> cities = new ArrayList<String>();
-        for (int i=0; i< SyncData.getInstance().cities.size();i++){
+        for (int i = 0; i < SyncData.getInstance().cities.size(); i++) {
 
             cities.add(SyncData.getInstance().cities.get(i).name);
             System.out.println(SyncData.getInstance().cities.get(i).name);
@@ -55,7 +56,7 @@ public final static  String ID_EXTRA= "string_i_need";
         }
 
 
-        city_adapter = new ArrayAdapter<String>( this,android.R.layout.simple_list_item_1,cities);
+        city_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cities);
         listViewCities.setAdapter(city_adapter);
     }
 }

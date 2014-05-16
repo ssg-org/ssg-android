@@ -9,7 +9,7 @@ import java.util.List;
 public class SyncData {
     private static SyncData ourInstance = new SyncData();
 
-    public static List<City> cities= new ArrayList<City>();
+    public static List<City> cities = new ArrayList<City>();
     public static List<Categories> categories = new ArrayList<Categories>();
 
     public static SyncData getInstance() {
@@ -19,9 +19,7 @@ public class SyncData {
     private SyncData() {
 
 
-
     }
-
 
 
 }

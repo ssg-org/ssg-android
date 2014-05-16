@@ -10,7 +10,7 @@
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/splash_ulica"
-        android:background="#fffffb"
+        android:background="#2fff82"
         android:scaleType="centerCrop" />
 
 </LinearLayout>

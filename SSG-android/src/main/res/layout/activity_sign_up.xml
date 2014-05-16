@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="org.sredisvojgrad.ulica.activities.sign_up"
-    android:background="#f4edff">
+    android:background="#ffeaeaea">
 
     <Button
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
         android:layout_above="@+id/eTName"
         android:layout_marginBottom="20dp"
         android:textAlignment="center"
-        android:textColor="#36ff79"
+        android:textColor="#2fff82"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:textStyle="bold" />
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="First Name"
-        android:textColorHint="#ff060304"
+        android:textColorHint="#ff040302"
         android:ems="10"
         android:id="@+id/eTName"
         android:layout_above="@+id/eTSurname"
@@ -50,14 +50,14 @@
         android:textAlignment="gravity"
         android:background="#ffffff"
         android:gravity="center"
-        android:textColor="#ff3e2d0a" />
+        android:textColor="#ff040302" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:hint="Last Name"
-        android:textColorHint="#ff010001"
+        android:textColorHint="#ff040302"
         android:ems="10"
         android:id="@+id/eTSurname"
         android:layout_above="@+id/eTEmail"
@@ -65,7 +65,7 @@
         android:layout_centerHorizontal="true"
         android:background="#ffffff"
         android:gravity="center"
-        android:textColor="#ff060103" />
+        android:textColor="#ff040302" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -78,10 +78,10 @@
         android:layout_alignLeft="@+id/eTSurname"
         android:layout_alignStart="@+id/eTSurname"
         android:hint="Email"
-        android:textColorHint="#ff050204"
+        android:textColorHint="#ff040302"
         android:background="#ffffff"
         android:gravity="center"
-        android:textColor="#ff180b12" />
+        android:textColor="#ff040302" />
 
     <EditText
         android:layout_width="match_parent"
@@ -96,10 +96,10 @@
         android:hint="Password"
         android:singleLine="false"
         android:background="#ffffff"
-        android:textColorHint="#ff020101"
+        android:textColorHint="#ff040302"
         android:textAlignment="center"
         android:gravity="center"
-        android:textColor="#ff10070b" />
+        android:textColor="#ff040302" />
 
     <Button
         android:layout_width="wrap_content"
@@ -121,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:hint="City"
-        android:textColorHint="#ff010001"
+        android:textColorHint="#ff040302"
         android:id="@+id/btnGradovi"
         android:layout_above="@+id/btnSignUp"
         android:layout_marginBottom="15dp"
@@ -129,7 +129,7 @@
         android:layout_alignLeft="@+id/eTPassword"
         android:gravity="center"
         android:background="#ffffffff"
-        android:textColor="#ff080306" />
+        android:textColor="#ff040302" />
 
 
 </RelativeLayout>

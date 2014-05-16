@@ -13,21 +13,19 @@ import org.sredisvojgrad.ulica.entity.user;
  */
 public class userDao extends SQLiteDao<user> {
 
-    public DatabaseHelper getDbHelper(Context ctx)
-    {
+    public DatabaseHelper getDbHelper(Context ctx) {
 
         return org.sredisvojgrad.ulica.Database.DbFactory.getDatabaseHelper(ctx);
     }
+
     @SuppressWarnings("rowtypes")
-    public TableHelper getTableHelper()
-    {
+    public TableHelper getTableHelper() {
         return new org.sredisvojgrad.ulica.entityDao.userTable();
     }
-    public userDao(Context ctx)
-    {
+
+    public userDao(Context ctx) {
         super(ctx);
     }
-
 
 
 }

@@ -20,35 +20,35 @@ import javax.crypto.spec.SecretKeySpec;
 /**
  * Created by harisdautovic on 22/04/14.
  */
-public  final class SsgAPI {
+public final class SsgAPI {
 
 
-    public static String getHostName (){
+    public static String getHostName() {
 
-        return "http://dev.ulica.ba/api/v1";
+        return "https://dev.ulica.ba/api/v1";
     }
 
-    public static String buildSignature (HashMap<String,String>params){
+    public static String buildSignature(HashMap<String, String> params) {
 
         //Signature
-        String signature="";
+        String signature = "";
 
         //Sort params keys alphabeticaly
-        List<String> sortedKeys=new ArrayList(params.keySet());
+        List<String> sortedKeys = new ArrayList(params.keySet());
         Collections.sort(sortedKeys);
 
 
-        for (int i=0; i< sortedKeys.size();i++){
+        for (int i = 0; i < sortedKeys.size(); i++) {
 
-            signature+=sortedKeys.get(i).toString();
-            signature+="=";
-            signature+=params.get(sortedKeys.get(i));
-            signature+="&";
+            signature += sortedKeys.get(i).toString();
+            signature += "=";
+            signature += params.get(sortedKeys.get(i));
+            signature += "&";
 
 
         }
 
-        signature = signature.substring(0,signature.length()-1);
+        signature = signature.substring(0, signature.length() - 1);
 
         String generated_signature = "";
 
@@ -64,12 +64,13 @@ public  final class SsgAPI {
     }
 
 
-    public static String base64forData (String signature) throws SignatureException, UnsupportedEncodingException {
+    public static String base64forData(String signature) throws SignatureException, UnsupportedEncodingException {
 
-        byte[] sha256= hashMac(signature,"secret"); // ok
-        String base64=toBase64fromString(sha256);
+        byte[] sha256 = hashMac(signature, "secret"); // ok
+        String base64 = toBase64fromString(sha256);
         return base64;
     }
+
     private static String toBase64fromString(byte[] text) throws UnsupportedEncodingException {
 
         System.out.println("--- " + Base64.encodeToString(text, Base64.DEFAULT));
@@ -91,7 +92,8 @@ public  final class SsgAPI {
             // throw an exception or pick a different encryption method
             throw new SignatureException(
                     "error building signature, no such algorithm in device "
-                            + HASH_ALGORITHM);
+                            + HASH_ALGORITHM
+            );
         } catch (InvalidKeyException e) {
             throw new SignatureException(
                     "error building signature, invalid key " + HASH_ALGORITHM);
