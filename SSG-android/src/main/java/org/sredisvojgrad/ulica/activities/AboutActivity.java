@@ -1,13 +1,10 @@
 package org.sredisvojgrad.ulica.activities;
 
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import org.sredisvojgrad.ulica.R;
@@ -15,12 +12,10 @@ import org.sredisvojgrad.ulica.R;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 
-public class AboutActivity extends RoboActivity implements View.OnClickListener {
+public class AboutActivity extends RoboActivity  {
 
     @InjectView(R.id.textView)
     private TextView textView;
-    @InjectView(R.id.button)
-    private Button button;
 
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -29,7 +24,6 @@ public class AboutActivity extends RoboActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         getActionBar().setHomeButtonEnabled(true);
-        init();
 
 
     }
@@ -55,19 +49,7 @@ public class AboutActivity extends RoboActivity implements View.OnClickListener 
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v == button) {
-            Intent intent = new Intent(AboutActivity.this, SetProblemActivity.class);
-            startActivity(intent);
-        }
-    }
 
-    private void init() {
-
-        button.setOnClickListener(this);
-
-    }
 }
 
 

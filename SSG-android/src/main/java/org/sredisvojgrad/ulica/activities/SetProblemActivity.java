@@ -31,8 +31,9 @@ public class SetProblemActivity extends ActionBarActivity implements SsgCommunic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_set_problem);
-        btnCategory = (Button) findViewById(R.id.btnCategory);
+        //koristi drugi layout
+        setContentView(R.layout.activity_map);
+     /*   btnCategory = (Button) findViewById(R.id.btnCategory);
         btnCitySet = (Button) findViewById(R.id.btnCitySet);
         eTDescription = (EditText) findViewById(R.id.eTDescription);
         eTTitle = (EditText) findViewById(R.id.eTTitle);
@@ -46,7 +47,7 @@ public class SetProblemActivity extends ActionBarActivity implements SsgCommunic
         //na oba pise isto?
         btnCategory.setText(passedVar);
         btnCitySet.setText(passedCity);
-        init();
+        init();*/
     }
 
 
