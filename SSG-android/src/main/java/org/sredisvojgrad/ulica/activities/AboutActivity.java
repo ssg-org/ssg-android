@@ -12,7 +12,7 @@ import org.sredisvojgrad.ulica.R;
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
 
-public class AboutActivity extends RoboActivity  {
+public class AboutActivity extends RoboActivity {
 
     @InjectView(R.id.textView)
     private TextView textView;
